@@ -2,7 +2,7 @@
 
 Este pacote contém **somente os arquivos necessários** para usar **Bootstrap 5** no lugar do Tailwind
 em um projeto **Laravel (11/12) + Breeze (Blade)**.
-
+Este prejeto está pronto para uso então se não funcionar siga os passos.
 > Compatível com Laravel 11 e futuros (ex.: 12) mantendo a mesma estrutura de Vite/Blade.
 
 ---
@@ -14,7 +14,7 @@ em um projeto **Laravel (11/12) + Breeze (Blade)**.
 npm remove tailwindcss postcss autoprefixer
 ```
 
-2) Instale Bootstrap:
+2) Instale Bootstrap(se não existir):
 ```bash
 npm i bootstrap @popperjs/core
 ```
