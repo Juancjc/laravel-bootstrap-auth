@@ -6,7 +6,14 @@ Este prejeto está pronto para uso então se não funcionar siga os passos.
 > Compatível com Laravel 11 e futuros (ex.: 12) mantendo a mesma estrutura de Vite/Blade.
 
 ---
-
+## Primeiro uso
+- Crie um novo projeto Laravel:
+```bash
+    composer i 
+    npm i
+    php artisan serve
+    npm run dev
+```
 ## Passos rápidos
 
 1) Remova Tailwind (se existir):
