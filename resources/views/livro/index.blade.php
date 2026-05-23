@@ -1,5 +1,7 @@
 @extends('layouts.app')
+@section('css')
 
+@endsection
 @section('content')
     <div class="p-4 bg-light border rounded">
         <h2 class="h4 mb-2">Lista de livros</h2>
