@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Livro;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 class LivroController extends Controller
@@ -23,11 +24,10 @@ class LivroController extends Controller
         session(['ultimo_login' => $agora]);
 
         // Busca livros no banco
-        $livros = Livro::all();
-
-        // Retorna view + cookie
+        $livros = Livro::with('usuarioEmprestado')->get();
+        $usuarios = User::where('id', '!=', auth()->id())->get();
         return response()
-            ->view('livro.index', compact('livros'))
+            ->view('livro.index', compact('livros', 'usuarios'))
             ->cookie('ultimo_acesso', $agora, 60);
     }
     public function create()
@@ -70,5 +70,12 @@ class LivroController extends Controller
         $livro = Livro::find($id);
         $livro->delete();
         return redirect()->route('livro.index')->with('success', 'Livro deletado com sucesso!');
+    }
+    public function emprestar($id, $id_usuario_emprestado)
+    {
+        $livro = Livro::find($id);
+        $livro->id_usuario_emprestado = $id_usuario_emprestado;
+        $livro->save();
+        return redirect()->route('livro.index')->with('success', 'Livro emprestado com sucesso!');
     }
 }

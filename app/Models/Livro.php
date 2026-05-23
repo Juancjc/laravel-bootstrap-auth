@@ -15,5 +15,10 @@ class Livro extends Model
     protected $fillable = [
         'nome',
         'autor',
+        'id_usuario_emprestado'
     ];
+    public function usuarioEmprestado()
+    {
+        return $this->belongsTo(User::class, 'id_usuario_emprestado');
+    }
 }

@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/livro/{id}', [LivroController::class, 'edit'])->name('livro.edit');
     Route::put('/livro/{id}', [LivroController::class, 'update'])->name('livro.update');
     Route::delete('/livro/{id}', [LivroController::class, 'destroy'])->name('livro.destroy');
+    Route::post('/livro/emprestar/{id}/{id_usuario_emprestado}', [LivroController::class, 'emprestar'])->name('livro.emprestar');
 });
 
 require __DIR__.'/auth.php';
